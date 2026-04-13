@@ -82,6 +82,19 @@
     }
 
     var result = await query;
+    if (result.error && result.error.message && result.error.message.indexOf("parent_plan_id") !== -1) {
+      var retryQuery = client
+        .from("plans")
+        .select("id, role_type, full_name, status, updated_at, created_at, owner_role")
+        .eq("user_id", user.id)
+        .order("updated_at", { ascending: false });
+
+      if (roleType) {
+        retryQuery = retryQuery.eq("role_type", roleType);
+      }
+      result = await retryQuery;
+    }
+
     if (result.error) {
       throw new Error(result.error.message);
     }
@@ -120,6 +133,9 @@
     });
 
     if (result.error) {
+      if (result.error.message && result.error.message.indexOf("parent_plan_id") !== -1) {
+        return [];
+      }
       throw new Error(result.error.message);
     }
 
@@ -148,6 +164,9 @@
       .order("updated_at", { ascending: false });
 
     if (plansResult.error) {
+      if (plansResult.error.message && plansResult.error.message.indexOf("parent_plan_id") !== -1) {
+        return [];
+      }
       throw new Error(plansResult.error.message);
     }
 
