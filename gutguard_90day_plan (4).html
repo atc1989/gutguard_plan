@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gutguard — 90-Day Planning System</title>
+<title>Gutguard - 90-Day Planning System</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -34,7 +34,7 @@ body{font-family:'Barlow',sans-serif;background:var(--off);color:var(--text);min
 .mi{font-size:.65rem;color:#8AAED4;letter-spacing:.05em}
 .mi strong{color:#fff;font-weight:600}
 
-/* ── MAIN SCREEN SYSTEM ── */
+/* MAIN SCREEN SYSTEM */
 .screen{display:none}
 .screen.active{display:block;animation:fadeUp .25s ease}
 @keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
@@ -60,7 +60,7 @@ body{font-family:'Barlow',sans-serif;background:var(--off);color:var(--text);min
 
 .flow-chain{background:#fff;border:1px solid var(--border);border-radius:3px;padding:.875rem 1.2rem;display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;font-size:.78rem;margin-bottom:1.75rem}
 .fc-node{display:flex;align-items:center;gap:.4rem}
-.fc-badge{font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:2px;cursor:pointer;transition:all .15s;border:1px solid transparent}
+.fc-badge{font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:2px;cursor:pointer;transition:all .15s;border:1px solid transparent;appearance:none;font-family:inherit}
 .fc-badge:hover{transform:translateY(-2px);box-shadow:0 3px 10px rgba(0,0,0,.15)}
 .fc-arrow{color:var(--border);font-size:1rem;font-weight:700}
 .fc-m{background:#E8F5EE;color:var(--c-m);border-color:#B8DEC8}
@@ -70,7 +70,7 @@ body{font-family:'Barlow',sans-serif;background:var(--off);color:var(--text);min
 .fc-o{background:#FDE8E8;color:var(--c-o);border-color:#E8B8B8}
 
 .type-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:11px;margin-bottom:1.75rem}
-.tc{background:#fff;border:1px solid var(--border);border-top:3px solid var(--border);border-radius:3px;padding:1.4rem 1.1rem 1.1rem;cursor:pointer;transition:all .18s;position:relative;overflow:hidden}
+.tc{background:#fff;border:1px solid var(--border);border-top:3px solid var(--border);border-radius:3px;padding:1.4rem 1.1rem 1.1rem;cursor:pointer;transition:all .18s;position:relative;overflow:hidden;appearance:none;display:block;width:100%;text-align:left;font:inherit}
 .tc::before{content:'';position:absolute;inset:0;background:var(--sky);opacity:0;transition:opacity .2s}
 .tc:hover::before{opacity:1}
 .tc:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(10,42,94,.12)}
@@ -92,7 +92,7 @@ body{font-family:'Barlow',sans-serif;background:var(--off);color:var(--text);min
 .n-danger strong{color:var(--danger)}
 .n-success{background:#E8F5EE;border-left:3px solid var(--success)}
 
-/* ── FORM SCREEN ── */
+/* FORM SCREEN */
 #sc-form .fw{max-width:1100px;margin:0 auto;padding:2rem 1.5rem 4rem}
 .form-banner{border-radius:3px;padding:1.1rem 1.4rem;margin-bottom:1.5rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 .form-banner.m{background:var(--c-m)}.form-banner.leader{background:var(--c-l)}
@@ -298,6 +298,8 @@ body{font-family:'Barlow',sans-serif;background:var(--off);color:var(--text);min
 .btn{padding:8px 16px;border-radius:3px;font-family:'Barlow',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .15s;border:none}
 .bto{background:transparent;border:1px solid var(--border);color:var(--muted)}
 .bto:hover{border-color:var(--navy);color:var(--navy)}
+.btd{background:#FEF5E7;border:1px solid #F2CF8D;color:#9B6500}
+.btd:hover{background:#FCE8BE;transform:translateY(-1px)}
 .btp{background:var(--navy);color:#fff}
 .btp:hover{background:var(--blue);transform:translateY(-1px);box-shadow:0 4px 12px rgba(10,42,94,.25)}
 .btn-sm{padding:5px 10px;font-size:.65rem}
@@ -337,7 +339,7 @@ body{font-family:'Barlow',sans-serif;background:var(--off);color:var(--text);min
   <div class="hdr-inner">
     <div>
       <div class="logo">Gut<span>guard</span></div>
-      <div class="logo-sub">IGI Corp · CVA Bldg, JP Laurel Ave, Davao City</div>
+      <div class="logo-sub">IGI Corp | CVA Bldg, JP Laurel Ave, Davao City</div>
     </div>
     <div class="hdr-right">
       <button class="back-btn" id="backBtn" onclick="goHome()">&#8592; Home</button>
@@ -350,20 +352,20 @@ body{font-family:'Barlow',sans-serif;background:var(--off);color:var(--text);min
     <div class="mi">TO: <strong>All Members, 01s, Leaders, Depots & City Stockists</strong></div>
     <div class="mi">FROM: <strong>Office of Chairman & CEO</strong></div>
     <div class="mi">DATE: <strong>March 23, 2026</strong></div>
-    <div class="mi">EXECUTION: <strong>April 5 – July 5, 2026</strong></div>
+    <div class="mi">EXECUTION: <strong>April 5 - July 5, 2026</strong></div>
   </div>
 </div>
 
-<!-- ══ HOME SCREEN ══ -->
+<!-- HOME SCREEN -->
 <div id="sc-home" class="screen active">
   <div class="ch-head">
     <h1>90-Day Planning &amp; Consolidation System</h1>
-    <p>Each level enters their own plan. Data flows up automatically: Member → Team Leader → Squad → Platoon → 01</p>
+    <p>Each level enters their own plan. Data flows up automatically: Member -> Team Leader -> Squad -> Platoon -> 01</p>
   </div>
 
   <div class="memo-box">
     <div class="mb-lbl">How It Works</div>
-    <strong>1.</strong> Each person enters their own plan at their level. &nbsp;<strong>2.</strong> Leaders at each level see a <strong>Consolidation View</strong> — adding members/leaders under them and instantly seeing totals roll up. &nbsp;<strong>3.</strong> The 01/Product Center sees the full consolidated plan across all levels.
+    <strong>1.</strong> Each person enters their own plan at their level. &nbsp;<strong>2.</strong> Leaders at each level see a <strong>Consolidation View</strong> - adding members/leaders under them and instantly seeing totals roll up. &nbsp;<strong>3.</strong> The 01/Product Center sees the full consolidated plan across all levels.
   </div>
 
   <div class="auth-wrap">
@@ -372,7 +374,7 @@ body{font-family:'Barlow',sans-serif;background:var(--off);color:var(--text);min
         <div class="sec-lbl" style="margin-bottom:.45rem">Account Access</div>
         <div class="auth-copy">Sign in with your Supabase account before saving or browsing plans. RLS will scope plan access to the signed-in user.</div>
       </div>
-      <div class="auth-status" id="auth-status">Checking Supabase auth state...</div>
+      <div class="auth-status" id="auth-status" role="status" aria-live="polite">Checking Supabase auth state...</div>
     </div>
     <div class="auth-tools">
       <input type="email" id="auth-email" placeholder="Email address">
@@ -385,15 +387,15 @@ body{font-family:'Barlow',sans-serif;background:var(--off);color:var(--text);min
 
   <div class="sec-lbl">Consolidation Chain</div>
   <div class="flow-chain">
-    <div class="fc-node"><span class="fc-badge fc-m" onclick="startForm('member')">🙋 Member</span></div>
-    <span class="fc-arrow">→</span>
-    <div class="fc-node"><span class="fc-badge fc-l" onclick="startForm('leader')">👥 Team Leader</span></div>
-    <span class="fc-arrow">→</span>
-    <div class="fc-node"><span class="fc-badge fc-s" onclick="startForm('squad')">🏅 Squad Leader</span></div>
-    <span class="fc-arrow">→</span>
-    <div class="fc-node"><span class="fc-badge fc-p" onclick="startForm('platoon')">⭐ Platoon Leader</span></div>
-    <span class="fc-arrow">→</span>
-    <div class="fc-node"><span class="fc-badge fc-o" onclick="startForm('o1')">🏢 01 / Product Center</span></div>
+    <div class="fc-node"><span class="fc-badge fc-m" onclick="startForm('member')">&#128587; Member</span></div>
+    <span class="fc-arrow">-&gt;</span>
+    <div class="fc-node"><span class="fc-badge fc-l" onclick="startForm('leader')">&#128101; Team Leader</span></div>
+    <span class="fc-arrow">-&gt;</span>
+    <div class="fc-node"><span class="fc-badge fc-s" onclick="startForm('squad')">&#127941; Squad Leader</span></div>
+    <span class="fc-arrow">-&gt;</span>
+    <div class="fc-node"><span class="fc-badge fc-p" onclick="startForm('platoon')">&#11088; Platoon Leader</span></div>
+    <span class="fc-arrow">-&gt;</span>
+    <div class="fc-node"><span class="fc-badge fc-o" onclick="startForm('o1')">&#127970; 01 / Product Center</span></div>
   </div>
 
   <div class="step-bar">
@@ -406,11 +408,11 @@ body{font-family:'Barlow',sans-serif;background:var(--off);color:var(--text);min
 
   <div class="sec-lbl">Open a Plan</div>
   <div class="type-grid">
-    <div class="tc tc-m" onclick="startForm('member')"><span class="t-icon">🙋</span><div class="t-name">Member</div><div class="t-desc">Individual 90-day plan with targets, weekly activities & big event commitment</div><span class="t-badge bm">Member</span></div>
-    <div class="tc tc-l" onclick="startForm('leader')"><span class="t-icon">👥</span><div class="t-name">Team Leader</div><div class="t-desc">Team plan + add members below to consolidate their data upward</div><span class="t-badge bl">Team Leader</span></div>
-    <div class="tc tc-s" onclick="startForm('squad')"><span class="t-icon">🏅</span><div class="t-name">Squad Leader</div><div class="t-desc">Squad plan + add team leaders below to roll up totals</div><span class="t-badge bs">Squad Leader</span></div>
-    <div class="tc tc-p" onclick="startForm('platoon')"><span class="t-icon">⭐</span><div class="t-name">Platoon Leader</div><div class="t-desc">Platoon plan + consolidate squad leaders below</div><span class="t-badge bp">Platoon Leader</span></div>
-    <div class="tc tc-o" onclick="startForm('o1')"><span class="t-icon">🏢</span><div class="t-name">01 / Product Center</div><div class="t-desc">Final consolidated plan — all levels roll up here. Deadline: April 1, 2026</div><span class="t-badge bo">01 Level</span></div>
+    <div class="tc tc-m" onclick="startForm('member')"><span class="t-icon">&#128587;</span><div class="t-name">Member</div><div class="t-desc">Individual 90-day plan with targets, weekly activities and big event commitment</div><span class="t-badge bm">Member</span></div>
+    <div class="tc tc-l" onclick="startForm('leader')"><span class="t-icon">&#128101;</span><div class="t-name">Team Leader</div><div class="t-desc">Team plan plus member consolidation and roll-up totals</div><span class="t-badge bl">Team Leader</span></div>
+    <div class="tc tc-s" onclick="startForm('squad')"><span class="t-icon">&#127941;</span><div class="t-name">Squad Leader</div><div class="t-desc">Squad plan plus team leader roll-up totals</div><span class="t-badge bs">Squad Leader</span></div>
+    <div class="tc tc-p" onclick="startForm('platoon')"><span class="t-icon">&#11088;</span><div class="t-name">Platoon Leader</div><div class="t-desc">Platoon plan plus squad leader consolidation</div><span class="t-badge bp">Platoon Leader</span></div>
+    <div class="tc tc-o" onclick="startForm('o1')"><span class="t-icon">&#127970;</span><div class="t-name">01 / Product Center</div><div class="t-desc">Final consolidated plan - all levels roll up here. Deadline: April 1, 2026</div><span class="t-badge bo">01 Level</span></div>
   </div>
   <div class="saved-plans-wrap">
     <div class="saved-plans-head">
@@ -435,17 +437,17 @@ body{font-family:'Barlow',sans-serif;background:var(--off);color:var(--text);min
       <div class="saved-plan-empty">Saved plans will appear here after Supabase is connected.</div>
     </div>
   </div>
-  <div class="notice n-danger"><strong>Non-Negotiable:</strong> All leaders submit individual plans · All plans include leads, pay-ins, sales · Each Product Center schedules at least 2 big events · Final plan submitted by the 01.</div>
+  <div class="notice n-danger"><strong>Non-Negotiable:</strong> All leaders submit individual plans | All plans include leads, pay-ins, sales | Each Product Center schedules at least 2 big events | Final plan submitted by the 01.</div>
 </div>
 
-<!-- ══ FORM SCREEN ══ -->
+<!-- FORM SCREEN -->
 <div id="sc-form" class="screen">
   <div class="fw" id="forminner"></div>
 </div>
 
-<!-- ══ MODAL: ADD SUB-MEMBER ══ -->
+<!-- MODAL: ADD SUB-MEMBER -->
 <div class="modal-overlay" id="modal">
-  <div class="modal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <div class="modal-hdr">
       <div class="modal-title" id="modal-title">Add Member</div>
       <button class="modal-close" onclick="closeModal()">&#10005;</button>
@@ -454,7 +456,7 @@ body{font-family:'Barlow',sans-serif;background:var(--off);color:var(--text);min
       <div class="fg">
         <div class="f"><label>Name</label><input type="text" id="m-inp-name" placeholder="Full name"></div>
         <div class="f"><label>90-Day Pay-in Target</label><input type="number" id="m-inp-pi" min="0" placeholder="0"></div>
-        <div class="f"><label>90-Day Sales Target (₱)</label><input type="number" id="m-inp-sales" min="0" placeholder="0"></div>
+        <div class="f"><label>90-Day Sales Target (PHP)</label><input type="number" id="m-inp-sales" min="0" placeholder="0"></div>
         <div class="f"><label>90-Day Leads Target</label><input type="number" id="m-inp-leads" min="0" placeholder="0"></div>
         <div class="f"><label>90-Day Attendees Target</label><input type="number" id="m-inp-att" min="0" placeholder="0"></div>
         <div class="f"><label>Big Event Attendees Committed</label><input type="number" id="m-inp-evt" min="0" placeholder="0"></div>
@@ -468,18 +470,16 @@ body{font-family:'Barlow',sans-serif;background:var(--off);color:var(--text);min
 </div>
 
 <footer class="site-footer">
-  <p>Gutguard — IGI Corp · Room 13, CVA Building, JP Laurel Ave, Bgy 11-B, Davao City · 0936 972 4896 · www.gutguard.ph</p>
+  <p>Gutguard - IGI Corp | Room 13, CVA Building, JP Laurel Ave, Bgy 11-B, Davao City | 0936 972 4896 | www.gutguard.ph</p>
 </footer>
-<div class="toast" id="toast"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase-config.js"></script>
 <script src="plan-model.js"></script>
 <script src="plan-api.js"></script>
 <script>
-/* ══════════════════════════════════════════
-   STATE
-══════════════════════════════════════════ */
+/* STATE */
 var curType = null, curWeek = 1;
 var currentUser = null;
 var childPlans = {member:[],leader:[],squad:[],platoon:[],o1:[]};
@@ -492,6 +492,85 @@ var planMeta = {
   platoon:makePlanMeta(),
   o1:makePlanMeta()
 };
+var formDirty=false;
+var draftAutosaveTimer=null;
+var suppressDraftPersistence=false;
+
+function getDraftScopeId(){
+  return currentUser&&currentUser.id?currentUser.id:'guest';
+}
+function setFormDirty(nextValue, skipStatusRefresh){
+  formDirty=!!nextValue;
+  if(curType&&!skipStatusRefresh)updateSaveStatus(curType);
+}
+function clearDraftAutosaveTimer(){
+  if(draftAutosaveTimer){
+    clearTimeout(draftAutosaveTimer);
+    draftAutosaveTimer=null;
+  }
+}
+function persistLocalDraft(options){
+  if(!curType||suppressDraftPersistence||!(window.GutguardPlanModel&&window.GutguardPlanModel.collectPlanData&&window.GutguardPlanModel.saveLocalDraft))return null;
+  var plan=window.GutguardPlanModel.collectPlanData(curType,planMeta[curType]);
+  plan.status=(planMeta[curType]&&planMeta[curType].planId)
+    ?((planMeta[curType]&&planMeta[curType].status)||'submitted')
+    :'draft';
+  if(!(window.GutguardPlanModel.hasMeaningfulPlanData&&window.GutguardPlanModel.hasMeaningfulPlanData(plan))){
+    if(window.GutguardPlanModel.clearLocalDraft)window.GutguardPlanModel.clearLocalDraft(curType,getDraftScopeId());
+    return null;
+  }
+  return window.GutguardPlanModel.saveLocalDraft(curType,plan,planMeta[curType],getDraftScopeId());
+}
+function scheduleDraftAutosave(){
+  if(!curType||suppressDraftPersistence)return;
+  clearDraftAutosaveTimer();
+  draftAutosaveTimer=setTimeout(function(){
+    var savedDraft=persistLocalDraft();
+    if(savedDraft&&curType)updateSaveStatus(curType,{message:'Unsaved changes are stored locally on this device.',tone:'n-warn',detail:savedDraft.saved_at?'Local draft updated: '+formatSavedAt(savedDraft.saved_at):''});
+  },500);
+}
+function clearLocalDraftForType(type){
+  clearDraftAutosaveTimer();
+  if(window.GutguardPlanModel&&window.GutguardPlanModel.clearLocalDraft){
+    window.GutguardPlanModel.clearLocalDraft(type,getDraftScopeId());
+  }
+}
+function restoreLocalDraft(type, preferredPlanId){
+  if(!(window.GutguardPlanModel&&window.GutguardPlanModel.getLocalDraft&&window.GutguardPlanModel.hydratePlanData))return false;
+  var draft=window.GutguardPlanModel.getLocalDraft(type,getDraftScopeId());
+  if(!draft||!draft.plan)return false;
+  var draftPlanId=(draft.meta&&draft.meta.planId)||(draft.plan&&draft.plan.id)||null;
+  if(preferredPlanId&&draftPlanId!==preferredPlanId)return false;
+  if(preferredPlanId===null&&draftPlanId)return false;
+  suppressDraftPersistence=true;
+  try{
+    window.GutguardPlanModel.hydratePlanData(type,draft.plan);
+  }finally{
+    suppressDraftPersistence=false;
+  }
+  planMeta[type]={
+    planId:draftPlanId,
+    status:(draft.meta&&draft.meta.status)||(draft.plan&&draft.plan.status)||'draft',
+    lastSavedAt:(draft.meta&&draft.meta.lastSavedAt)||null
+  };
+  setFormDirty(true,true);
+  updateSaveStatus(type,{message:'Restored unsaved local changes from this device.',tone:'n-warn',detail:draft.saved_at?'Local draft updated: '+formatSavedAt(draft.saved_at):''});
+  return true;
+}
+function attachDraftTracking(){
+  var root=document.getElementById('forminner');
+  if(!root)return;
+  root.addEventListener('input',function(){
+    if(suppressDraftPersistence)return;
+    setFormDirty(true,true);
+    scheduleDraftAutosave();
+  });
+  root.addEventListener('change',function(){
+    if(suppressDraftPersistence)return;
+    setFormDirty(true,true);
+    scheduleDraftAutosave();
+  });
+}
 
 // wkData[type][week][activity] = {leads,att,pi,sales,date,...}
 var wkData = {member:{},leader:{},squad:{},platoon:{},o1:{}};
@@ -530,12 +609,98 @@ function formatSavedAt(value){
   if(isNaN(d.getTime()))return '';
   return d.toLocaleString();
 }
+function clearNode(el){
+  while(el&&el.firstChild)el.removeChild(el.firstChild);
+}
+function escapeHtml(value){
+  return String(value==null?'':value).replace(/[&<>"']/g,function(ch){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch];
+  });
+}
+function renderPlanMeta(metaEl,label,planId,savedAt){
+  clearNode(metaEl);
+  if(!planId)return;
+  metaEl.appendChild(document.createTextNode(label+': '));
+  var code=document.createElement('code');
+  code.textContent=planId;
+  metaEl.appendChild(code);
+  if(savedAt){
+    metaEl.appendChild(document.createTextNode(' | Last saved: '+formatSavedAt(savedAt)));
+  }
+}
+function setStatusText(el,text,strongText){
+  clearNode(el);
+  el.appendChild(document.createTextNode(text));
+  if(strongText){
+    var strong=document.createElement('strong');
+    strong.textContent=strongText;
+    el.appendChild(strong);
+  }
+}
+function setSelectMessage(selectEl,message){
+  clearNode(selectEl);
+  var option=document.createElement('option');
+  option.value='';
+  option.textContent=message;
+  selectEl.appendChild(option);
+}
+function setSavedPlansMessage(listEl,message){
+  clearNode(listEl);
+  var empty=document.createElement('div');
+  empty.className='saved-plan-empty';
+  empty.textContent=message;
+  listEl.appendChild(empty);
+}
+function buildSavedPlanCard(plan){
+  var card=document.createElement('div');
+  card.className='saved-plan-card';
+
+  var role=document.createElement('div');
+  role.className='saved-plan-role';
+  role.textContent=TYPE_LABEL[plan.role_type]||plan.role_type;
+  card.appendChild(role);
+
+  var name=document.createElement('div');
+  name.className='saved-plan-name';
+  name.textContent=plan.full_name||'(No Name)';
+  card.appendChild(name);
+
+  var updated=plan.updated_at?formatSavedAt(plan.updated_at):(plan.created_at?formatSavedAt(plan.created_at):'');
+  var meta=document.createElement('div');
+  meta.className='saved-plan-meta';
+  meta.textContent='Status: '+(plan.status||'submitted')+(updated?' | Updated: '+updated:'');
+  card.appendChild(meta);
+
+  var idMeta=document.createElement('div');
+  idMeta.className='saved-plan-meta';
+  idMeta.style.marginTop='.25rem';
+  idMeta.appendChild(document.createTextNode('Plan ID: '));
+  var code=document.createElement('code');
+  code.textContent=plan.id;
+  idMeta.appendChild(code);
+  card.appendChild(idMeta);
+
+  var actions=document.createElement('div');
+  actions.className='saved-plan-actions';
+  var openBtn=document.createElement('button');
+  openBtn.className='btn btp';
+  openBtn.type='button';
+  openBtn.textContent='Open';
+  openBtn.addEventListener('click',function(){
+    openSavedPlan(plan.id,plan.role_type);
+  });
+  actions.appendChild(openBtn);
+  card.appendChild(actions);
+
+  return card;
+}
 function updateSaveStatus(type, state){
   var statusEl=document.getElementById(type+'-save-state');
   var metaEl=document.getElementById(type+'-save-meta');
   if(!statusEl||!metaEl)return;
   var apiReady=!!(window.GutguardPlanApi&&window.GutguardPlanApi.isConfigured&&window.GutguardPlanApi.isConfigured());
   var storedRef=window.GutguardPlanModel&&window.GutguardPlanModel.getStoredPlanRef?window.GutguardPlanModel.getStoredPlanRef(type):null;
+  var localDraft=window.GutguardPlanModel&&window.GutguardPlanModel.getLocalDraft?window.GutguardPlanModel.getLocalDraft(type,getDraftScopeId()):null;
   var meta=planMeta[type]||makePlanMeta();
   var tone='n-info';
   var message='';
@@ -551,10 +716,20 @@ function updateSaveStatus(type, state){
   }else if(!currentUser){
     tone='n-danger';
     message='Sign in first. Save, load, and saved-plan browsing are protected by Supabase auth and RLS.';
+  }else if(formDirty&&curType===type){
+    tone='n-warn';
+    message='You have unsaved local changes on this device.';
+    detail=(localDraft&&localDraft.saved_at)?'Local draft updated: '+formatSavedAt(localDraft.saved_at):'Autosave pending...';
+  }else if(localDraft&&curType===type){
+    tone='n-warn';
+    message='A local draft is available on this device.';
+    detail=localDraft.saved_at?'Local draft updated: '+formatSavedAt(localDraft.saved_at):'';
   }else if(meta.planId){
-    tone='n-success';
-    message='Connected to Supabase. This form is linked to a saved plan.';
-    detail='Plan ID: <code>'+meta.planId+'</code>'+(meta.lastSavedAt?' | Last saved: '+formatSavedAt(meta.lastSavedAt):'');
+    tone=meta.status==='draft'?'n-warn':'n-success';
+    message=meta.status==='draft'
+      ?'Connected to Supabase. This plan is currently saved as a draft.'
+      :'Connected to Supabase. This form is linked to a saved plan.';
+    detail='Plan ID: <code>'+meta.planId+'</code>'+(meta.lastSavedAt?' | Last saved: '+formatSavedAt(meta.lastSavedAt):'')+' | Status: '+(meta.status||'submitted');
   }else if(storedRef&&storedRef.planId){
     tone='n-info';
     message='A saved plan is available for this role on this device.';
@@ -566,7 +741,16 @@ function updateSaveStatus(type, state){
 
   statusEl.className='notice '+tone;
   statusEl.textContent=message;
-  metaEl.innerHTML=detail;
+  if(state&&state.detail){
+    clearNode(metaEl);
+    metaEl.textContent=state.detail;
+  }else if(meta.planId){
+    renderPlanMeta(metaEl,'Plan ID',meta.planId,meta.lastSavedAt);
+  }else if(storedRef&&storedRef.planId){
+    renderPlanMeta(metaEl,'Remembered plan ID',storedRef.planId,storedRef.updatedAt);
+  }else{
+    clearNode(metaEl);
+  }
 }
 function resetInMemoryPlan(type){
   wkData[type]={};
@@ -589,13 +773,13 @@ function renderAuthState(){
   var statusEl=document.getElementById('auth-status');
   if(!statusEl)return;
   if(!(window.GutguardSupabase&&window.GutguardSupabase.isConfigured&&window.GutguardSupabase.isConfigured())){
-    statusEl.innerHTML='Supabase is not configured.';
+    setStatusText(statusEl,'Supabase is not configured.');
     return;
   }
   if(currentUser){
-    statusEl.innerHTML='Signed in as <strong>'+currentUser.email+'</strong>';
+    setStatusText(statusEl,'Signed in as ',currentUser.email);
   }else{
-    statusEl.innerHTML='Not signed in';
+    setStatusText(statusEl,'Not signed in');
   }
 }
 async function bootstrapAuthState(){
@@ -652,28 +836,33 @@ async function populateParentOptions(type, selectedPlanId){
   var selectEl=document.getElementById(type+'-parent-plan-id');
   if(!selectEl)return;
   var currentValue=selectedPlanId||selectEl.value||'';
-  selectEl.innerHTML='<option value="">No parent selected</option>';
+  setSelectMessage(selectEl,'No parent selected');
   if(!PARENT_ROLE[type]){
     selectEl.disabled=true;
     return;
   }
   selectEl.disabled=false;
   if(!currentUser){
-    selectEl.innerHTML='<option value="">Sign in to load parent plans</option>';
+    setSelectMessage(selectEl,'Sign in to load parent plans');
     return;
   }
   try{
     var parents=await window.GutguardPlanApi.listPotentialParents(type);
     if(!parents.length){
-      selectEl.innerHTML='<option value="">No '+(TYPE_LABEL[PARENT_ROLE[type]]||PARENT_ROLE[type])+' plans found</option>';
+      setSelectMessage(selectEl,'No '+(TYPE_LABEL[PARENT_ROLE[type]]||PARENT_ROLE[type])+' plans found');
       return;
     }
-    selectEl.innerHTML='<option value="">No parent selected</option>'+parents.map(function(plan){
-      var selected=currentValue&&currentValue===plan.id?' selected':'';
-      return '<option value="'+plan.id+'"'+selected+'>'+(plan.full_name||'(No Name)')+' · '+(TYPE_LABEL[plan.role_type]||plan.role_type)+'</option>';
-    }).join('');
+    setSelectMessage(selectEl,'No parent selected');
+    parents.forEach(function(plan){
+      var option=document.createElement('option');
+      option.value=plan.id;
+      option.selected=!!(currentValue&&currentValue===plan.id);
+      option.textContent=(plan.full_name||'(No Name)')+' | '+(TYPE_LABEL[plan.role_type]||plan.role_type);
+      selectEl.appendChild(option);
+    });
+    return;
   }catch(err){
-    selectEl.innerHTML='<option value="">Unable to load parent plans</option>';
+    setSelectMessage(selectEl,'Unable to load parent plans');
   }
 }
 async function refreshChildPlans(type){
@@ -690,9 +879,7 @@ async function refreshChildPlans(type){
   renderConsolidation(type);
 }
 
-/* ══════════════════════════════════════════
-   NAVIGATION
-══════════════════════════════════════════ */
+/* NAVIGATION */
 function showScreen(id){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
@@ -700,9 +887,12 @@ function showScreen(id){
 
 async function startForm(type, explicitPlanId){
   curType=type; curWeek=1;
+  clearDraftAutosaveTimer();
+  setFormDirty(false,true);
   document.getElementById('backBtn').style.display='inline-flex';
   showScreen('sc-form');
   document.getElementById('forminner').innerHTML = buildForm(type);
+  attachDraftTracking();
   document.querySelectorAll('.auto-today').forEach(el=>{if(!el.value)el.value=todayStr();});
   await populateParentOptions(type);
   renderPlanner(type);
@@ -712,6 +902,8 @@ async function startForm(type, explicitPlanId){
   renderConsolidation(type);
   computeProjections(type);
   updateSaveStatus(type,{message:'Form ready. Checking for a saved plan...',tone:'n-info'});
+  var storedRef=window.GutguardPlanModel&&window.GutguardPlanModel.getStoredPlanRef?window.GutguardPlanModel.getStoredPlanRef(type):null;
+  var preferredPlanId=explicitPlanId||(storedRef&&storedRef.planId?storedRef.planId:null);
   if(window.GutguardPlanApi&&window.GutguardPlanApi.isConfigured&&window.GutguardPlanApi.isConfigured()){
     if(explicitPlanId){
       try{
@@ -720,8 +912,8 @@ async function startForm(type, explicitPlanId){
         updateSaveStatus(type,{message:'The selected Supabase plan could not be loaded.',tone:'n-danger',detail:err&&err.message?err.message:''});
       }
     }else{
-      var storedRef=window.GutguardPlanModel&&window.GutguardPlanModel.getStoredPlanRef?window.GutguardPlanModel.getStoredPlanRef(type):null;
       if(storedRef&&storedRef.planId){
+        preferredPlanId=storedRef.planId;
         try{
           await loadSavedPlan(true);
         }catch(err){
@@ -734,31 +926,39 @@ async function startForm(type, explicitPlanId){
   }else{
     updateSaveStatus(type);
   }
+  if(!restoreLocalDraft(type, preferredPlanId)){
+    if(!preferredPlanId)restoreLocalDraft(type, null);
+  }
   await refreshChildPlans(type);
   window.scrollTo(0,0);
 }
 
 function goHome(){
+  if(formDirty&&!confirm('You have unsaved local changes. Go back anyway? Your local draft will stay on this device.'))return;
+  if(formDirty)persistLocalDraft();
+  clearDraftAutosaveTimer();
   document.getElementById('backBtn').style.display='none';
   showScreen('sc-home');
   refreshSavedPlans();
-  curType=null; window.scrollTo(0,0);
+  curType=null;
+  setFormDirty(false,true);
+  window.scrollTo(0,0);
 }
 
 async function renderSavedPlans(roleType){
   var listEl=document.getElementById('saved-plans-list');
   if(!listEl)return;
   if(!(window.GutguardPlanApi&&window.GutguardPlanApi.isConfigured&&window.GutguardPlanApi.isConfigured())){
-    listEl.innerHTML='<div class="saved-plan-empty">Configure Supabase in <code>supabase-config.js</code> to browse saved plans.</div>';
+    setSavedPlansMessage(listEl,'Configure Supabase in supabase-config.js to browse saved plans.');
     return;
   }
   if(!currentUser){
-    listEl.innerHTML='<div class="saved-plan-empty">Sign in to browse saved plans.</div>';
+    setSavedPlansMessage(listEl,'Sign in to browse saved plans.');
     return;
   }
   var searchEl=document.getElementById('saved-plans-search');
   var searchTerm=searchEl&&searchEl.value?searchEl.value.trim().toLowerCase():'';
-  listEl.innerHTML='<div class="saved-plan-empty">Loading saved plans from Supabase...</div>';
+  setSavedPlansMessage(listEl,'Loading saved plans from Supabase...');
   try{
     var plans=await window.GutguardPlanApi.listPlans(roleType||null);
     if(searchTerm){
@@ -767,22 +967,15 @@ async function renderSavedPlans(roleType){
       });
     }
     if(!plans.length){
-      listEl.innerHTML='<div class="saved-plan-empty">No saved plans found for the current filter.</div>';
+      setSavedPlansMessage(listEl,'No saved plans found for the current filter.');
       return;
     }
-    listEl.innerHTML=plans.map(function(plan){
-      var roleLabel=TYPE_LABEL[plan.role_type]||plan.role_type;
-      var updated=plan.updated_at?formatSavedAt(plan.updated_at):(plan.created_at?formatSavedAt(plan.created_at):'');
-      return '<div class="saved-plan-card">'+
-        '<div class="saved-plan-role">'+roleLabel+'</div>'+
-        '<div class="saved-plan-name">'+(plan.full_name||'(No Name)')+'</div>'+
-        '<div class="saved-plan-meta">Status: '+(plan.status||'submitted')+(updated?' | Updated: '+updated:'')+'</div>'+
-        '<div class="saved-plan-meta" style="margin-top:.25rem">Plan ID: <code>'+plan.id+'</code></div>'+
-        '<div class="saved-plan-actions"><button class="btn btp" onclick="openSavedPlan(\''+plan.id+'\', \''+plan.role_type+'\')">Open</button></div>'+
-      '</div>';
-    }).join('');
+    clearNode(listEl);
+    plans.forEach(function(plan){
+      listEl.appendChild(buildSavedPlanCard(plan));
+    });
   }catch(err){
-    listEl.innerHTML='<div class="saved-plan-empty">Failed to load saved plans. '+(err&&err.message?err.message:'Unknown error.')+'</div>';
+    setSavedPlansMessage(listEl,'Failed to load saved plans. '+(err&&err.message?err.message:'Unknown error.'));
   }
 }
 
@@ -796,9 +989,7 @@ async function openSavedPlan(planId, roleType){
   await startForm(roleType, planId);
 }
 
-/* ══════════════════════════════════════════
-   FORM BUILDER
-══════════════════════════════════════════ */
+/* FORM BUILDER */
 var TYPE_LABEL={member:'Member',leader:'Team Leader',squad:'Squad Leader',platoon:'Platoon Leader',o1:'01 / Product Center'};
 var TYPE_BADGE={member:'bm',leader:'bl',squad:'bs',platoon:'bp',o1:'bo'};
 var TYPE_CLASS={member:'m',leader:'leader',squad:'squad',platoon:'platoon',o1:'o1'};
@@ -851,7 +1042,7 @@ function buildForm(type){
 
   var consolidationSection = hasConsolidation?`
     <div class="sec">
-      <div class="sec-head"><span class="sec-tag">Section E</span><span class="sec-title">Consolidation — ${subRole}s Under This ${TYPE_LABEL[type]}</span></div>
+      <div class="sec-head"><span class="sec-tag">Section E</span><span class="sec-title">Consolidation - ${subRole}s Under This ${TYPE_LABEL[type]}</span></div>
       <div class="notice n-info">Add each ${subRole} under you. Their 90-day targets will roll up into your consolidated totals below.</div>
       <div id="${p}-con-container"></div>
       <div class="con-total" id="${p}-con-total" style="display:none">
@@ -859,15 +1050,15 @@ function buildForm(type){
         <div class="ct-num"><span class="n" id="${p}-con-leads">0</span><span class="l">Leads</span></div>
         <div class="ct-num"><span class="n" id="${p}-con-att">0</span><span class="l">Attendees</span></div>
         <div class="ct-num"><span class="n" id="${p}-con-pi">0</span><span class="l">Pay-ins</span></div>
-        <div class="ct-num"><span class="n" id="${p}-con-sales">0</span><span class="l">Sales ₱</span></div>
+        <div class="ct-num"><span class="n" id="${p}-con-sales">0</span><span class="l">Sales PHP</span></div>
       </div>
     </div>`:'';
 
   return `
     <div class="form-banner ${TYPE_CLASS[type]}">
       <div>
-        <div class="fb-t">${TYPE_LABEL[type]} — 90-Day Execution Plan</div>
-        <div class="fb-s">${type==='o1'?'Final Consolidated 90-Day Execution Plan — SUBMIT BY APRIL 1, 2026':'Individual 90-Day Execution Plan'}</div>
+        <div class="fb-t">${TYPE_LABEL[type]} - 90-Day Execution Plan</div>
+        <div class="fb-s">${type==='o1'?'Final Consolidated 90-Day Execution Plan - SUBMIT BY APRIL 1, 2026':'Individual 90-Day Execution Plan'}</div>
       </div>
       <span class="t-badge ${TYPE_BADGE[type]}" style="align-self:center;font-size:.65rem;padding:5px 12px">${TYPE_LABEL[type]}</span>
     </div>
@@ -896,7 +1087,7 @@ function buildForm(type){
 
     <!-- B: PROJECTED TARGETS -->
     <div class="sec">
-      <div class="sec-head"><span class="sec-tag">Section B</span><span class="sec-title">Step 1 — Set 90-Day Projected Targets</span></div>
+      <div class="sec-head"><span class="sec-tag">Section B</span><span class="sec-title">Step 1 - Set 90-Day Projected Targets</span></div>
       <div class="card">
         <div style="font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.875rem">Enter Your Own 90-Day Targets (not consolidated)</div>
         <div class="proj-setup">
@@ -906,24 +1097,24 @@ function buildForm(type){
             <div class="pib-note">Your personal pay-in goal</div>
           </div>
           <div class="pib">
-            <div class="pib-lbl">90-Day Sales Target (₱)</div>
+            <div class="pib-lbl">90-Day Sales Target (PHP)</div>
             <input class="pib-inp" type="number" id="${p}-tgt-sales" min="0" placeholder="0" oninput="onTargetChange('${p}')">
             <div class="pib-note">Your personal sales goal</div>
           </div>
           <div class="pib" style="background:#061E45">
             <div class="pib-lbl">Calendar Start Date</div>
             <input type="date" id="${p}-cs" class="auto-today pib-inp" style="font-size:.9rem" oninput="renderCal('${p}');computeProjections('${p}')">
-            <div class="pib-note">April 5 – July 5, 2026</div>
+            <div class="pib-note">April 5 - July 5, 2026</div>
           </div>
         </div>
-        <div style="font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.6rem">Computed Required Numbers (1 Pay-in = 5 Attendees · 1 Attendee = 4 Leads)</div>
+        <div style="font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.6rem">Computed Required Numbers (1 Pay-in = 5 Attendees, 1 Attendee = 4 Leads)</div>
         <div class="derived-row">
-          <div class="der-box"><div class="der-lbl">Req. Attendees</div><div class="der-val" id="${p}-der-att">—</div><div class="der-note">Pay-ins × 5</div></div>
-          <div class="der-box"><div class="der-lbl">Req. Leads</div><div class="der-val" id="${p}-der-leads">—</div><div class="der-note">Attendees × 4</div></div>
-          <div class="der-box"><div class="der-lbl">Pay-ins / Week</div><div class="der-val" id="${p}-der-wkpi">—</div><div class="der-note">÷ 12 weeks</div></div>
-          <div class="der-box"><div class="der-lbl">Sales / Week ₱</div><div class="der-val" id="${p}-der-wksales">—</div><div class="der-note">÷ 12 weeks</div></div>
-          <div class="der-box"><div class="der-lbl">Leads / Week</div><div class="der-val" id="${p}-der-wkleads">—</div><div class="der-note">÷ 12 weeks</div></div>
-          <div class="der-box" style="border-left-color:var(--gold)"><div class="der-lbl">Leads / Day</div><div class="der-val" id="${p}-der-dayleads" style="color:var(--gold)">—</div><div class="der-note">÷ 90 days</div></div>
+          <div class="der-box"><div class="der-lbl">Req. Attendees</div><div class="der-val" id="${p}-der-att">-</div><div class="der-note">Pay-ins x 5</div></div>
+          <div class="der-box"><div class="der-lbl">Req. Leads</div><div class="der-val" id="${p}-der-leads">-</div><div class="der-note">Attendees x 4</div></div>
+          <div class="der-box"><div class="der-lbl">Pay-ins / Week</div><div class="der-val" id="${p}-der-wkpi">-</div><div class="der-note">/ 12 weeks</div></div>
+          <div class="der-box"><div class="der-lbl">Sales / Week PHP</div><div class="der-val" id="${p}-der-wksales">-</div><div class="der-note">/ 12 weeks</div></div>
+          <div class="der-box"><div class="der-lbl">Leads / Week</div><div class="der-val" id="${p}-der-wkleads">-</div><div class="der-note">/ 12 weeks</div></div>
+          <div class="der-box" style="border-left-color:var(--gold)"><div class="der-lbl">Leads / Day</div><div class="der-val" id="${p}-der-dayleads" style="color:var(--gold)">-</div><div class="der-note">/ 90 days</div></div>
         </div>
       </div>
 
@@ -932,7 +1123,7 @@ function buildForm(type){
         <div class="metric"><span class="val" id="${p}-ml">0</span><span class="lbl">Actual Leads</span><span class="sub">from planner</span></div>
         <div class="metric"><span class="val" id="${p}-ma">0</span><span class="lbl">Actual Attendees</span><span class="sub">from planner</span></div>
         <div class="metric"><span class="val" id="${p}-mp">0</span><span class="lbl">Actual Pay-ins</span><span class="sub">from planner</span></div>
-        <div class="metric"><span class="val" id="${p}-ms">0</span><span class="lbl">Actual Sales ₱</span><span class="sub">from planner</span></div>
+        <div class="metric"><span class="val" id="${p}-ms">0</span><span class="lbl">Actual Sales PHP</span><span class="sub">from planner</span></div>
       </div>
 
       <!-- Projection Table -->
@@ -942,7 +1133,7 @@ function buildForm(type){
             <tr>
               <th rowspan="2" style="text-align:left;vertical-align:middle">Week</th>
               <th colspan="3" style="border-right:2px solid #1A2A4A">Pay-ins</th>
-              <th colspan="3">Sales (₱)</th>
+              <th colspan="3">Sales (PHP)</th>
             </tr>
             <tr>
               <th>Target (cum.)</th><th>Actual (cum.)</th><th style="border-right:2px solid #1A2A4A">vs Target</th>
@@ -953,28 +1144,28 @@ function buildForm(type){
           <tfoot>
             <tr>
               <td>90-Day Total</td>
-              <td id="${p}-pf-tpi">—</td><td id="${p}-pf-api">0</td><td id="${p}-pf-vpi">—</td>
-              <td id="${p}-pf-ts">—</td><td id="${p}-pf-as">0</td><td id="${p}-pf-vs">—</td>
+              <td id="${p}-pf-tpi">-</td><td id="${p}-pf-api">0</td><td id="${p}-pf-vpi">-</td>
+              <td id="${p}-pf-ts">-</td><td id="${p}-pf-as">0</td><td id="${p}-pf-vs">-</td>
             </tr>
           </tfoot>
         </table>
       </div>
       <div class="sum3">
-        <div class="s3b tot"><div class="s3-lbl">90-Day Pay-in Target</div><div class="s3-val" id="${p}-sum-tpi">—</div><div class="s3-note" id="${p}-sum-tpi-n">Set a target</div></div>
+        <div class="s3b tot"><div class="s3-lbl">90-Day Pay-in Target</div><div class="s3-val" id="${p}-sum-tpi">-</div><div class="s3-note" id="${p}-sum-tpi-n">Set a target</div></div>
         <div class="s3b ach"><div class="s3-lbl">Pay-ins Achieved</div><div class="s3-val" id="${p}-sum-api">0</div><div class="s3-note" id="${p}-sum-api-n">from planner</div></div>
-        <div class="s3b gap"><div class="s3-lbl">Pay-in Gap</div><div class="s3-val" id="${p}-sum-gpi">—</div><div class="s3-note" id="${p}-sum-gpi-n">remaining</div></div>
+        <div class="s3b gap"><div class="s3-lbl">Pay-in Gap</div><div class="s3-val" id="${p}-sum-gpi">-</div><div class="s3-note" id="${p}-sum-gpi-n">remaining</div></div>
       </div>
       <div class="sum3" style="margin-top:.5rem">
-        <div class="s3b tot"><div class="s3-lbl">90-Day Sales Target ₱</div><div class="s3-val" id="${p}-sum-ts">—</div><div class="s3-note" id="${p}-sum-ts-n">Set a target</div></div>
-        <div class="s3b ach"><div class="s3-lbl">Sales Achieved ₱</div><div class="s3-val" id="${p}-sum-as">₱0</div><div class="s3-note" id="${p}-sum-as-n">from planner</div></div>
-        <div class="s3b gap"><div class="s3-lbl">Sales Gap ₱</div><div class="s3-val" id="${p}-sum-gs">—</div><div class="s3-note" id="${p}-sum-gs-n">remaining</div></div>
+        <div class="s3b tot"><div class="s3-lbl">90-Day Sales Target PHP</div><div class="s3-val" id="${p}-sum-ts">-</div><div class="s3-note" id="${p}-sum-ts-n">Set a target</div></div>
+        <div class="s3b ach"><div class="s3-lbl">Sales Achieved PHP</div><div class="s3-val" id="${p}-sum-as">PHP0</div><div class="s3-note" id="${p}-sum-as-n">from planner</div></div>
+        <div class="s3b gap"><div class="s3-lbl">Sales Gap PHP</div><div class="s3-val" id="${p}-sum-gs">-</div><div class="s3-note" id="${p}-sum-gs-n">remaining</div></div>
       </div>
     </div>
 
     <!-- C: WEEKLY PLANNER -->
     <div class="sec">
-      <div class="sec-head"><span class="sec-tag">Section C</span><span class="sec-title">Step 3 — Weekly Activity Planner</span></div>
-      ${type==='member'?`<div class="notice n-info" style="margin-bottom:.75rem">Guide: 1 Pay-in = 5 Attendees · 1 Attendee = 4 Leads. Enter activities below — projections update automatically.</div>`:''}
+      <div class="sec-head"><span class="sec-tag">Section C</span><span class="sec-title">Step 3 - Weekly Activity Planner</span></div>
+      ${type==='member'?`<div class="notice n-info" style="margin-bottom:.75rem">Guide: 1 Pay-in = 5 Attendees, 1 Attendee = 4 Leads. Enter activities below - projections update automatically.</div>`:''}
       ${memberChecklist}
       <div class="card">
         <div class="week-controls">
@@ -994,7 +1185,7 @@ function buildForm(type){
                 <th class="cn">Leads</th>
                 <th class="cn">Attendees</th>
                 <th class="cn">Pay-ins</th>
-                <th class="cn">Sales ₱</th>
+                <th class="cn">Sales PHP</th>
                 ${extraCols.map(ec=>`<th>${ec.label}</th>`).join('')}
               </tr>
             </thead>
@@ -1050,17 +1241,16 @@ function buildForm(type){
       <div class="form-actions-group">
         <button class="btn bto" onclick="clearPlan('${p}')">Clear All</button>
         <button class="btn bto" onclick="loadSavedPlan()">Load Saved Plan</button>
+        <button class="btn btd" onclick="savePlan('draft')">Save Draft</button>
       </div>
-      <button class="btn btp" onclick="savePlan()">Save &amp; Submit Plan</button>
+      <button class="btn btp" onclick="savePlan('submitted')">Submit Plan</button>
     </div>
     <div style="margin-top:1rem;padding:.875rem 1.1rem;background:var(--sky);border-radius:3px;border:1px solid var(--border);font-size:.72rem;color:var(--muted);font-style:italic;text-align:center">
-      "If you know your numbers, you can control your results." — Gutguard Operations
+      "If you know your numbers, you can control your results." - Gutguard Operations
     </div>`;
 }
 
-/* ══════════════════════════════════════════
-   PLANNER
-══════════════════════════════════════════ */
+/* PLANNER */
 function gotoWeek(w){
   curWeek=Math.max(1,Math.min(12,w));
   renderPlanner(curType); updateDots(curType);
@@ -1094,7 +1284,7 @@ function renderPlanner(type){
     extraCols.forEach(function(ec){
       if(!wk[act][ec.key]) wk[act][ec.key]='';
       var td=document.createElement('td'); td.className='tt';
-      var inp=document.createElement('input'); inp.type='text'; inp.placeholder='—'; inp.value=wk[act][ec.key];
+      var inp=document.createElement('input'); inp.type='text'; inp.placeholder='-'; inp.value=wk[act][ec.key];
       inp.oninput=function(){wk[act][ec.key]=this.value;};
       td.appendChild(inp); row.appendChild(td);
     });
@@ -1131,9 +1321,7 @@ function updateDots(type){
   }
 }
 
-/* ══════════════════════════════════════════
-   SUMMARY TABLE
-══════════════════════════════════════════ */
+/* SUMMARY TABLE */
 function renderSummaryTbl(type){
   var p=type, acts=ACTIVITIES[type]||[], tbody=document.getElementById(p+'-smry-body'); if(!tbody)return;
   tbody.innerHTML='';
@@ -1144,11 +1332,11 @@ function renderSummaryTbl(type){
     var actTotal=0;
     for(var w=1;w<=12;w++){
       var r=(wkData[type][w]||{})[act]||{}, v=parseInt(r.leads)||0;
-      var td=document.createElement('td'); td.textContent=v||'—';
+      var td=document.createElement('td'); td.textContent=v||'-';
       if(v>0){td.style.fontWeight='600';td.style.color='var(--navy)';}else{td.style.color='#C0CCE0';}
       tr.appendChild(td); actTotal+=v; gpw[w-1]+=v; gt+=v;
     }
-    var tdT=document.createElement('td'); tdT.textContent=actTotal||'—';
+    var tdT=document.createElement('td'); tdT.textContent=actTotal||'-';
     tdT.style.fontWeight='700'; tdT.style.color=actTotal?'var(--navy)':'#C0CCE0';
     tr.appendChild(tdT); tbody.appendChild(tr);
   });
@@ -1157,9 +1345,7 @@ function renderSummaryTbl(type){
   updateDots(type);
 }
 
-/* ══════════════════════════════════════════
-   CALENDAR
-══════════════════════════════════════════ */
+/* CALENDAR */
 function rebuildCalEvts(type){
   calEvts[type]={};
   for(var w=1;w<=12;w++){var wk=wkData[type][w]||{};Object.keys(wk).forEach(function(a){var d=wk[a].date;if(d){if(!calEvts[type][d])calEvts[type][d]=[];if(!calEvts[type][d].includes(a))calEvts[type][d].push(a);}});}
@@ -1186,9 +1372,7 @@ function renderCal(type){
   html+='</div>'; out.innerHTML=html;
 }
 
-/* ══════════════════════════════════════════
-   PROJECTED TARGETS
-══════════════════════════════════════════ */
+/* PROJECTED TARGETS */
 function onTargetChange(p){
   targets[p]={pi:parseInt(document.getElementById(p+'-tgt-pi')&&document.getElementById(p+'-tgt-pi').value)||0,
               sales:parseInt(document.getElementById(p+'-tgt-sales')&&document.getElementById(p+'-tgt-sales').value)||0};
@@ -1201,15 +1385,15 @@ function computeProjections(type){
   var tgtSales=targets[type]&&targets[type].sales||0;
   var reqAtt=tgtPi*5, reqLeads=reqAtt*4;
   var piWk=tgtPi/12, salWk=tgtSales/12, leadsWk=reqLeads/12, leadsDay=reqLeads/90;
-  function fmt(n){return n>0?Math.round(n).toLocaleString():'—';}
-  function fmtD(n){return n>0?n.toFixed(1):'—';}
+  function fmt(n){return n>0?Math.round(n).toLocaleString():'-';}
+  function fmtD(n){return n>0?n.toFixed(1):'-';}
   function e(id){return document.getElementById(id);}
-  if(e(p+'-der-att'))e(p+'-der-att').textContent=tgtPi?reqAtt.toLocaleString():'—';
-  if(e(p+'-der-leads'))e(p+'-der-leads').textContent=tgtPi?reqLeads.toLocaleString():'—';
-  if(e(p+'-der-wkpi'))e(p+'-der-wkpi').textContent=tgtPi?fmtD(piWk):'—';
-  if(e(p+'-der-wksales'))e(p+'-der-wksales').textContent=tgtSales?'₱'+Math.round(salWk).toLocaleString():'—';
-  if(e(p+'-der-wkleads'))e(p+'-der-wkleads').textContent=tgtPi?fmtD(leadsWk):'—';
-  if(e(p+'-der-dayleads'))e(p+'-der-dayleads').textContent=tgtPi?fmtD(leadsDay):'—';
+  if(e(p+'-der-att'))e(p+'-der-att').textContent=tgtPi?reqAtt.toLocaleString():'-';
+  if(e(p+'-der-leads'))e(p+'-der-leads').textContent=tgtPi?reqLeads.toLocaleString():'-';
+  if(e(p+'-der-wkpi'))e(p+'-der-wkpi').textContent=tgtPi?fmtD(piWk):'-';
+  if(e(p+'-der-wksales'))e(p+'-der-wksales').textContent=tgtSales?'PHP'+Math.round(salWk).toLocaleString():'-';
+  if(e(p+'-der-wkleads'))e(p+'-der-wkleads').textContent=tgtPi?fmtD(leadsWk):'-';
+  if(e(p+'-der-dayleads'))e(p+'-der-dayleads').textContent=tgtPi?fmtD(leadsDay):'-';
 
   // Gather actuals
   var actPi=[], actSales=[];
@@ -1229,46 +1413,44 @@ function computeProjections(type){
     var piPct=wTgtPi&&wTgtPi>0?Math.round((cumPi/wTgtPi)*100):null;
     var sPct=wTgtSales&&wTgtSales>0?Math.round((cumSales/wTgtSales)*100):null;
     function pClass(pct){return pct===null?'':pct>=100?'over':pct>=85?'on':'under';}
-    function pText(pct){return pct===null?'—':pct+'%';}
+    function pText(pct){return pct===null?'-':pct+'%';}
     function barHtml(pct){if(pct===null)return '';var w=Math.min(pct,100),cls=pct>=100?'over':pct>=85?'on':'under';return `<div class="pbar"><div class="pbar-f ${cls}" style="width:${w}%"></div></div>`;}
     var tr=document.createElement('tr');
     tr.innerHTML=`<td style="text-align:left;font-weight:700;font-size:.75rem;color:var(--navy);background:var(--sky);border-right:2px solid var(--border);padding-left:10px;white-space:nowrap">W${w}</td>
-      <td class="td-tgt">${wTgtPi!==null?wTgtPi.toLocaleString():'—'}</td>
-      <td class="td-act">${cumPi>0?cumPi.toLocaleString():'—'}</td>
+      <td class="td-tgt">${wTgtPi!==null?wTgtPi.toLocaleString():'-'}</td>
+      <td class="td-act">${cumPi>0?cumPi.toLocaleString():'-'}</td>
       <td class="td-pct ${pClass(piPct)}">${pText(piPct)}${barHtml(piPct)}</td>
-      <td class="td-tgt">${wTgtSales!==null?'₱'+wTgtSales.toLocaleString():'—'}</td>
-      <td class="td-act">${cumSales>0?'₱'+cumSales.toLocaleString():'—'}</td>
+      <td class="td-tgt">${wTgtSales!==null?'PHP'+wTgtSales.toLocaleString():'-'}</td>
+      <td class="td-act">${cumSales>0?'PHP'+cumSales.toLocaleString():'-'}</td>
       <td class="td-pct ${pClass(sPct)}">${pText(sPct)}${barHtml(sPct)}</td>`;
     tbody.appendChild(tr);
   }
 
   function set(id,val){var el=document.getElementById(id);if(el)el.textContent=val;}
-  set(p+'-pf-tpi',tgtPi?tgtPi.toLocaleString():'—');
+  set(p+'-pf-tpi',tgtPi?tgtPi.toLocaleString():'-');
   set(p+'-pf-api',totalActPi?totalActPi.toLocaleString():'0');
-  if(e(p+'-pf-vpi')&&tgtPi){var pct=Math.round((totalActPi/tgtPi)*100);e(p+'-pf-vpi').textContent=pct+'%';e(p+'-pf-vpi').style.color=pct>=100?'#4ADA8A':pct>=85?'var(--gold)':'#FF8A8A';}else set(p+'-pf-vpi','—');
-  set(p+'-pf-ts',tgtSales?'₱'+tgtSales.toLocaleString():'—');
-  set(p+'-pf-as',totalActSales?'₱'+totalActSales.toLocaleString():'0');
-  if(e(p+'-pf-vs')&&tgtSales){var spct=Math.round((totalActSales/tgtSales)*100);e(p+'-pf-vs').textContent=spct+'%';e(p+'-pf-vs').style.color=spct>=100?'#4ADA8A':spct>=85?'var(--gold)':'#FF8A8A';}else set(p+'-pf-vs','—');
+  if(e(p+'-pf-vpi')&&tgtPi){var pct=Math.round((totalActPi/tgtPi)*100);e(p+'-pf-vpi').textContent=pct+'%';e(p+'-pf-vpi').style.color=pct>=100?'#4ADA8A':pct>=85?'var(--gold)':'#FF8A8A';}else set(p+'-pf-vpi','-');
+  set(p+'-pf-ts',tgtSales?'PHP'+tgtSales.toLocaleString():'-');
+  set(p+'-pf-as',totalActSales?'PHP'+totalActSales.toLocaleString():'0');
+  if(e(p+'-pf-vs')&&tgtSales){var spct=Math.round((totalActSales/tgtSales)*100);e(p+'-pf-vs').textContent=spct+'%';e(p+'-pf-vs').style.color=spct>=100?'#4ADA8A':spct>=85?'var(--gold)':'#FF8A8A';}else set(p+'-pf-vs','-');
 
   var gapPi=tgtPi?Math.max(0,tgtPi-totalActPi):null, gapS=tgtSales?Math.max(0,tgtSales-totalActSales):null;
-  set(p+'-sum-tpi',tgtPi?tgtPi.toLocaleString():'—');
+  set(p+'-sum-tpi',tgtPi?tgtPi.toLocaleString():'-');
   set(p+'-sum-tpi-n',tgtPi?'90-day pay-in goal':'Set a target above');
   set(p+'-sum-api',totalActPi.toLocaleString());
   set(p+'-sum-api-n',tgtPi?Math.round((totalActPi/tgtPi)*100)+'% of target achieved':'from planner');
-  set(p+'-sum-gpi',gapPi!==null?(gapPi>0?gapPi.toLocaleString():'✓ Achieved!'):'—');
+  set(p+'-sum-gpi',gapPi!==null?(gapPi>0?gapPi.toLocaleString():'Achieved!'):'-');
   set(p+'-sum-gpi-n',gapPi===0?'Target fully met!':gapPi>0?'more pay-ins needed':'remaining');
-  set(p+'-sum-ts',tgtSales?'₱'+tgtSales.toLocaleString():'—');
+  set(p+'-sum-ts',tgtSales?'PHP'+tgtSales.toLocaleString():'-');
   set(p+'-sum-ts-n',tgtSales?'90-day sales goal':'Set a target above');
-  set(p+'-sum-as',totalActSales?'₱'+totalActSales.toLocaleString():'₱0');
+  set(p+'-sum-as',totalActSales?'PHP'+totalActSales.toLocaleString():'PHP0');
   set(p+'-sum-as-n',tgtSales?Math.round((totalActSales/tgtSales)*100)+'% of target achieved':'from planner');
-  set(p+'-sum-gs',gapS!==null?(gapS>0?'₱'+gapS.toLocaleString():'✓ Achieved!'):'—');
+  set(p+'-sum-gs',gapS!==null?(gapS>0?'PHP'+gapS.toLocaleString():'Achieved!'):'-');
   set(p+'-sum-gs-n',gapS===0?'Target fully met!':gapS>0?'more sales needed':'remaining');
 }
 
-/* ══════════════════════════════════════════
-   CONSOLIDATION
-══════════════════════════════════════════ */
-function renderConsolidation(type){
+/* CONSOLIDATION */
+function renderConsolidationLegacy(type){
   var p=type;
   var container=document.getElementById(p+'-con-container'); if(!container)return;
   var members=subMembers[type]||[];
@@ -1286,7 +1468,7 @@ function renderConsolidation(type){
         <div class="cc-num"><span class="n">${m.leads||0}</span><span class="l">Leads</span></div>
         <div class="cc-num"><span class="n">${m.att||0}</span><span class="l">Att.</span></div>
         <div class="cc-num"><span class="n">${m.pi||0}</span><span class="l">Pay-ins</span></div>
-        <div class="cc-num"><span class="n">${m.sales?'₱'+(m.sales).toLocaleString():'0'}</span><span class="l">Sales</span></div>
+        <div class="cc-num"><span class="n">${m.sales?'PHP'+(m.sales).toLocaleString():'0'}</span><span class="l">Sales</span></div>
       </div>
       <div class="cc-bar">
         <div class="cc-pct-lbl"><span>Pay-in Progress</span><span>${m.pi||0} / ${m.piTarget||'?'}</span></div>
@@ -1313,7 +1495,7 @@ function renderConsolidation(type){
       set(p+'-con-leads',totalLeads.toLocaleString());
       set(p+'-con-att',totalAtt.toLocaleString());
       set(p+'-con-pi',totalPi.toLocaleString());
-      set(p+'-con-sales','₱'+totalSales.toLocaleString());
+      set(p+'-con-sales','PHP'+totalSales.toLocaleString());
     } else {
       totRow.style.display='none';
     }
@@ -1362,12 +1544,16 @@ function saveSubMember(){
   else{if(!subMembers[modalType])subMembers[modalType]=[];subMembers[modalType].push(m);}
   closeModal();
   renderConsolidation(modalType);
+  setFormDirty(true,true);
+  scheduleDraftAutosave();
   showToast((modalEditIdx>=0?'Updated: ':'Added: ')+m.name);
 }
 function removeSubMember(idx){
   if(!confirm('Remove this entry?'))return;
   subMembers[curType].splice(idx,1);
   renderConsolidation(curType);
+  setFormDirty(true,true);
+  scheduleDraftAutosave();
   showToast('Removed.');
 }
 
@@ -1389,13 +1575,13 @@ function renderConsolidation(type){
       totalAtt+=child.totals.attendees||0;
       var piPct=child.target_pi&&child.target_pi>0?Math.min(100,Math.round(((child.totals.pay_ins||0)/child.target_pi)*100)):0;
       html+=`<div class="con-card">
-        <div class="cc-role">${TYPE_LABEL[child.role_type]||subRole}</div>
-        <div class="cc-name">${child.full_name||'(No Name)'}</div>
+        <div class="cc-role">${escapeHtml(TYPE_LABEL[child.role_type]||subRole)}</div>
+        <div class="cc-name">${escapeHtml(child.full_name||'(No Name)')}</div>
         <div class="cc-nums">
           <div class="cc-num"><span class="n">${child.totals.leads||0}</span><span class="l">Leads</span></div>
           <div class="cc-num"><span class="n">${child.totals.attendees||0}</span><span class="l">Att.</span></div>
           <div class="cc-num"><span class="n">${child.totals.pay_ins||0}</span><span class="l">Pay-ins</span></div>
-          <div class="cc-num"><span class="n">${child.totals.sales?'â‚±'+(child.totals.sales).toLocaleString():'0'}</span><span class="l">Sales</span></div>
+          <div class="cc-num"><span class="n">${child.totals.sales?'PHP'+(child.totals.sales).toLocaleString():'0'}</span><span class="l">Sales</span></div>
         </div>
         <div class="cc-bar">
           <div class="cc-pct-lbl"><span>Pay-in Progress</span><span>${child.totals.pay_ins||0} / ${child.target_pi||'?'}</span></div>
@@ -1415,13 +1601,13 @@ function renderConsolidation(type){
       }
       var piPct= m.piTarget&&m.piTarget>0?Math.min(100,Math.round((m.pi/m.piTarget)*100)):0;
       html+=`<div class="con-card">
-        <div class="cc-role">${subRole}</div>
-        <div class="cc-name">${m.name||'(No Name)'}</div>
+        <div class="cc-role">${escapeHtml(subRole)}</div>
+        <div class="cc-name">${escapeHtml(m.name||'(No Name)')}</div>
         <div class="cc-nums">
           <div class="cc-num"><span class="n">${m.leads||0}</span><span class="l">Leads</span></div>
           <div class="cc-num"><span class="n">${m.att||0}</span><span class="l">Att.</span></div>
           <div class="cc-num"><span class="n">${m.pi||0}</span><span class="l">Pay-ins</span></div>
-          <div class="cc-num"><span class="n">${m.sales?'â‚±'+(m.sales).toLocaleString():'0'}</span><span class="l">Sales</span></div>
+          <div class="cc-num"><span class="n">${m.sales?'PHP'+(m.sales).toLocaleString():'0'}</span><span class="l">Sales</span></div>
         </div>
         <div class="cc-bar">
           <div class="cc-pct-lbl"><span>Pay-in Progress</span><span>${m.pi||0} / ${m.piTarget||'?'}</span></div>
@@ -1446,7 +1632,7 @@ function renderConsolidation(type){
       set(p+'-con-leads',totalLeads.toLocaleString());
       set(p+'-con-att',totalAtt.toLocaleString());
       set(p+'-con-pi',totalPi.toLocaleString());
-      set(p+'-con-sales','â‚±'+totalSales.toLocaleString());
+      set(p+'-con-sales','PHP'+totalSales.toLocaleString());
     } else {
       totRow.style.display='none';
     }
@@ -1454,20 +1640,30 @@ function renderConsolidation(type){
 }
 
 /* MISC */
-function tog(el){el.classList.toggle('checked');}
+function tog(el){
+  el.classList.toggle('checked');
+  setFormDirty(true,true);
+  scheduleDraftAutosave();
+}
 function clearPlan(type){
   if(!confirm('Clear all current form data? This will not delete anything already saved in Supabase.'))return;
+  clearLocalDraftForType(type);
   resetInMemoryPlan(type);
   childPlans[type]=[];
   clearVisibleForm(type);
   planMeta[type]=makePlanMeta();
   curWeek=1;
+  setFormDirty(false,true);
   renderPlanner(type); renderSummaryTbl(type); renderCal(type); calcAllTotals(type); computeProjections(type); updateDots(type); renderConsolidation(type);
   updateSaveStatus(type,{message:'Form cleared locally. Use Load Saved Plan to restore the last Supabase copy.',tone:'n-info'});
   showToast('Form cleared locally. Saved Supabase data was not deleted.');
 }
 async function loadSavedPlan(silent, explicitPlanId){
   if(!curType)return;
+  if(!silent&&formDirty){
+    if(!confirm('Replace the current form with the saved Supabase copy? Your local draft will stay on this device.'))return;
+    persistLocalDraft();
+  }
   if(!(window.GutguardPlanApi&&window.GutguardPlanApi.isConfigured&&window.GutguardPlanApi.isConfigured())){
     updateSaveStatus(curType);
     if(!silent)showToast('Configure Supabase before loading a saved plan.');
@@ -1481,40 +1677,56 @@ async function loadSavedPlan(silent, explicitPlanId){
   }
   updateSaveStatus(curType,{message:'Loading saved plan from Supabase...',tone:'n-info'});
   var loaded=await window.GutguardPlanApi.loadPlanFromSupabase(ref.planId);
-  await populateParentOptions(curType, loaded.parent_plan_id||'');
-  window.GutguardPlanModel.hydratePlanData(curType,loaded);
+  clearDraftAutosaveTimer();
+  suppressDraftPersistence=true;
+  try{
+    await populateParentOptions(curType, loaded.parent_plan_id||'');
+    window.GutguardPlanModel.hydratePlanData(curType,loaded);
+  }finally{
+    suppressDraftPersistence=false;
+  }
   planMeta[curType]={planId:loaded.id,status:loaded.status||'submitted',lastSavedAt:loaded.updated_at||loaded.created_at||null};
   if(window.GutguardPlanModel&&window.GutguardPlanModel.rememberPlanRef)window.GutguardPlanModel.rememberPlanRef(curType,loaded);
+  setFormDirty(false,true);
   await refreshChildPlans(curType);
   updateSaveStatus(curType);
   if(!silent)showToast('Loaded "'+(loaded.full_name||TYPE_LABEL[curType])+'".');
 }
-async function savePlan(){
+async function savePlan(mode){
   if(!curType)return;
+  mode=mode||'submitted';
   try{
-    updateSaveStatus(curType,{message:'Saving plan to Supabase...',tone:'n-info'});
+    updateSaveStatus(curType,{message:(mode==='draft'?'Saving draft':'Submitting plan')+' to Supabase...',tone:'n-info'});
     var plan=window.GutguardPlanModel.collectPlanData(curType,planMeta[curType]);
-    plan.status='submitted';
-    window.GutguardPlanModel.validatePlanData(plan);
+    plan.status=mode==='draft'?'draft':'submitted';
+    window.GutguardPlanModel.validatePlanData(plan,{mode:mode});
     var saved=await window.GutguardPlanApi.savePlanToSupabase(plan);
-    planMeta[curType]={planId:saved.id,status:saved.status||'submitted',lastSavedAt:saved.updated_at||saved.created_at||new Date().toISOString()};
+    planMeta[curType]={planId:saved.id,status:saved.status||plan.status,lastSavedAt:saved.updated_at||saved.created_at||new Date().toISOString()};
     if(window.GutguardPlanModel&&window.GutguardPlanModel.rememberPlanRef)window.GutguardPlanModel.rememberPlanRef(curType,saved);
+    clearLocalDraftForType(curType);
+    setFormDirty(false,true);
     await refreshChildPlans(curType);
     refreshSavedPlans();
     updateSaveStatus(curType);
-    showToast('"'+(saved.full_name||'Plan')+'" saved to Supabase.');
+    showToast('"'+(saved.full_name||'Plan')+'" '+(mode==='draft'?'saved as draft.':'submitted to Supabase.'));
   }catch(err){
     updateSaveStatus(curType,{message:'Save failed. '+((err&&err.message)?err.message:'Unknown error.'),tone:'n-danger'});
     showToast((err&&err.message)?err.message:'Failed to save plan.');
   }
 }
 bootstrapAuthState();
+window.addEventListener('beforeunload',function(event){
+  if(!formDirty)return;
+  event.preventDefault();
+  event.returnValue='You have unsaved changes on this device.';
+});
 if(window.GutguardSupabase&&window.GutguardSupabase.onAuthStateChange){
   window.GutguardSupabase.onAuthStateChange(function(_event, session){
     currentUser=session&&session.user?session.user:null;
     renderAuthState();
     refreshSavedPlans();
     if(curType){
+      updateSaveStatus(curType);
       populateParentOptions(curType);
       refreshChildPlans(curType);
     }

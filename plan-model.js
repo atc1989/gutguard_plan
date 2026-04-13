@@ -1,5 +1,13 @@
 (function () {
   var STORAGE_KEY = "gutguard.supabase.planRefs";
+  var DRAFT_STORAGE_KEY = "gutguard.localDrafts.v1";
+  var PARENT_ROLE = {
+    member: "leader",
+    leader: "squad",
+    squad: "platoon",
+    platoon: "o1",
+    o1: null
+  };
 
   function toNumber(value) {
     var parsed = Number(value);
@@ -22,6 +30,22 @@
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(refs));
   }
 
+  function getStoredDrafts() {
+    try {
+      return JSON.parse(window.localStorage.getItem(DRAFT_STORAGE_KEY) || "{}");
+    } catch (error) {
+      return {};
+    }
+  }
+
+  function saveStoredDrafts(drafts) {
+    window.localStorage.setItem(DRAFT_STORAGE_KEY, JSON.stringify(drafts));
+  }
+
+  function normalizeScope(scopeId) {
+    return scopeId || "guest";
+  }
+
   function getStoredPlanRef(roleType) {
     return getStoredRefs()[roleType] || null;
   }
@@ -34,6 +58,48 @@
       updatedAt: savedPlan.updated_at || savedPlan.created_at || null
     };
     saveStoredRefs(refs);
+  }
+
+  function getLocalDraft(roleType, scopeId) {
+    var drafts = getStoredDrafts();
+    var scope = drafts[normalizeScope(scopeId)] || {};
+    return scope[roleType] || null;
+  }
+
+  function saveLocalDraft(roleType, plan, meta, scopeId) {
+    var drafts = getStoredDrafts();
+    var scopeKey = normalizeScope(scopeId);
+    if (!drafts[scopeKey]) {
+      drafts[scopeKey] = {};
+    }
+
+    drafts[scopeKey][roleType] = {
+      role_type: roleType,
+      saved_at: new Date().toISOString(),
+      meta: {
+        planId: meta && meta.planId ? meta.planId : null,
+        status: plan && plan.status ? plan.status : (meta && meta.status ? meta.status : "draft"),
+        lastSavedAt: meta && meta.lastSavedAt ? meta.lastSavedAt : null
+      },
+      plan: plan
+    };
+
+    saveStoredDrafts(drafts);
+    return drafts[scopeKey][roleType];
+  }
+
+  function clearLocalDraft(roleType, scopeId) {
+    var drafts = getStoredDrafts();
+    var scopeKey = normalizeScope(scopeId);
+    if (!drafts[scopeKey] || !drafts[scopeKey][roleType]) {
+      return;
+    }
+
+    delete drafts[scopeKey][roleType];
+    if (!Object.keys(drafts[scopeKey]).length) {
+      delete drafts[scopeKey];
+    }
+    saveStoredDrafts(drafts);
   }
 
   function readInfoFields() {
@@ -228,9 +294,59 @@
     };
   }
 
-  function validatePlanData(plan) {
+  function hasMeaningfulPlanData(plan) {
+    if (!plan) {
+      return false;
+    }
+
+    if (plan.full_name || plan.parent_plan_id || plan.target_pi || plan.target_sales) {
+      return true;
+    }
+
+    if ((plan.checklist && plan.checklist.length) ||
+        (plan.week_entries && plan.week_entries.length) ||
+        (plan.consolidation_entries && plan.consolidation_entries.length)) {
+      return true;
+    }
+
+    var info = plan.info_fields || {};
+    return Object.keys(info).some(function (key) {
+      if (key === "start_date") {
+        return false;
+      }
+      return !!info[key];
+    });
+  }
+
+  function validatePlanData(plan, options) {
+    var mode = options && options.mode ? options.mode : (plan.status || "submitted");
+
     if (!plan.full_name) {
       throw new Error("Full name is required before saving.");
+    }
+
+    if (plan.target_pi < 0 || plan.target_sales < 0) {
+      throw new Error("Targets cannot be negative.");
+    }
+
+    if (mode === "draft") {
+      return;
+    }
+
+    if (!plan.calendar_start_date) {
+      throw new Error("Calendar start date is required before submitting.");
+    }
+
+    if (!plan.target_pi && !plan.target_sales) {
+      throw new Error("Set a pay-in target or sales target before submitting.");
+    }
+
+    if (PARENT_ROLE[plan.role_type] && !plan.parent_plan_id) {
+      throw new Error("Select a parent plan before submitting.");
+    }
+
+    if (!plan.week_entries || !plan.week_entries.length) {
+      throw new Error("Add at least one weekly planner entry before submitting.");
     }
   }
 
@@ -293,9 +409,13 @@
 
   window.GutguardPlanModel = {
     collectPlanData: collectPlanData,
+    hasMeaningfulPlanData: hasMeaningfulPlanData,
     validatePlanData: validatePlanData,
     hydratePlanData: hydratePlanData,
     getStoredPlanRef: getStoredPlanRef,
-    rememberPlanRef: rememberPlanRef
+    rememberPlanRef: rememberPlanRef,
+    getLocalDraft: getLocalDraft,
+    saveLocalDraft: saveLocalDraft,
+    clearLocalDraft: clearLocalDraft
   };
 })();

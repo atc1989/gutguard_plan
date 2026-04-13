@@ -10,4 +10,11 @@
 
 Notes:
 - This implementation now expects Supabase Auth and row-level security.
-- If you already created the old schema, rerun [supabase-schema.sql](/c:/Users/asiapac1/Downloads/gutguard/supabase-schema.sql) so `user_id`, `parent_plan_id`, and RLS policies are added.
+- If you already created the old schema, rerun [supabase-schema.sql](/c:/Users/asiapac1/Downloads/gutguard/supabase-schema.sql) so the hierarchy-aware helper functions, directory tables, `save_plan_bundle(...)` RPC, and updated RLS policies are installed.
+- Saved-plan browsing on the home screen now returns only the signed-in user's own plans.
+- Parent-plan dropdowns now come from the `list_potential_parent_plans` RPC, while linked parent users can read descendant plans through the new hierarchy RLS rules.
+- Draft saves and submit actions now use the `save_plan_bundle(...)` RPC for atomic saves instead of client-side delete/reinsert sequences.
+- Local autosave is device-only and stored in `localStorage`; it restores unsaved in-progress changes for the active role on the same device/browser.
+- The narrowed parent dropdown depends on the new directory tables: `organizations`, `teams`, and `user_team_memberships`.
+- You need to seed those directory tables so users are assigned to the correct team/squad/platoon/o1 chain; otherwise the parent dropdown will be empty even though saving and direct plan ownership still work.
+- Use [supabase-directory-seed.sql](/c:/Users/asiapac1/Downloads/gutguard/supabase-directory-seed.sql) as a starting template for populating the directory tables.

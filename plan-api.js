@@ -69,11 +69,12 @@
 
   async function listPlans(roleType) {
     var client = getClientOrThrow();
-    await getUserOrThrow();
+    var user = await getUserOrThrow();
 
     var query = client
       .from("plans")
       .select("id, role_type, full_name, status, updated_at, created_at, parent_plan_id, owner_role")
+      .eq("user_id", user.id)
       .order("updated_at", { ascending: false });
 
     if (roleType) {
@@ -110,7 +111,30 @@
     if (!parentRole) {
       return [];
     }
-    return listPlans(parentRole);
+
+    var client = getClientOrThrow();
+    await getUserOrThrow();
+
+    var result = await client.rpc("list_potential_parent_plans", {
+      child_role_type: roleType
+    });
+
+    if (result.error) {
+      throw new Error(result.error.message);
+    }
+
+    return (result.data || []).map(function (row) {
+      return {
+        id: row.id,
+        role_type: row.role_type,
+        full_name: row.full_name,
+        status: row.status,
+        updated_at: row.updated_at,
+        created_at: row.created_at,
+        parent_plan_id: row.parent_plan_id,
+        owner_role: row.owner_role
+      };
+    });
   }
 
   async function listChildPlans(parentPlanId) {
@@ -157,107 +181,34 @@
 
   async function savePlanToSupabase(plan) {
     var client = getClientOrThrow();
-    var user = await getUserOrThrow();
+    await getUserOrThrow();
 
-    var baseRow = {
-      user_id: user.id,
-      parent_plan_id: plan.parent_plan_id || null,
-      owner_role: plan.owner_role || plan.role_type,
-      role_type: plan.role_type,
-      full_name: plan.full_name,
-      start_date: plan.start_date,
-      calendar_start_date: plan.calendar_start_date,
-      target_pi: plan.target_pi || 0,
-      target_sales: plan.target_sales || 0,
-      info: plan.info_fields || {},
-      checklist: plan.checklist || [],
-      status: plan.status || "submitted",
-      updated_at: new Date().toISOString()
-    };
+    var result = await client
+      .rpc("save_plan_bundle", {
+        plan_payload: {
+          id: plan.id || null,
+          parent_plan_id: plan.parent_plan_id || null,
+          owner_role: plan.owner_role || plan.role_type,
+          role_type: plan.role_type,
+          full_name: plan.full_name || "",
+          start_date: plan.start_date || null,
+          calendar_start_date: plan.calendar_start_date || null,
+          target_pi: plan.target_pi || 0,
+          target_sales: plan.target_sales || 0,
+          info_fields: plan.info_fields || {},
+          checklist: plan.checklist || [],
+          status: plan.status || "submitted",
+          week_entries: plan.week_entries || [],
+          consolidation_entries: plan.consolidation_entries || []
+        }
+      })
+      .single();
 
-    var mainResult;
-    if (plan.id) {
-      mainResult = await client
-        .from("plans")
-        .update(baseRow)
-        .eq("id", plan.id)
-        .select("*")
-        .single();
-    } else {
-      mainResult = await client
-        .from("plans")
-        .insert(baseRow)
-        .select("*")
-        .single();
+    if (result.error) {
+      throw new Error(result.error.message);
     }
 
-    if (mainResult.error) {
-      throw new Error(mainResult.error.message);
-    }
-
-    var savedPlan = mainResult.data;
-
-    var deleteWeeks = await client
-      .from("plan_week_entries")
-      .delete()
-      .eq("plan_id", savedPlan.id);
-    if (deleteWeeks.error) {
-      throw new Error(deleteWeeks.error.message);
-    }
-
-    var deleteConsolidation = await client
-      .from("plan_consolidation_entries")
-      .delete()
-      .eq("plan_id", savedPlan.id);
-    if (deleteConsolidation.error) {
-      throw new Error(deleteConsolidation.error.message);
-    }
-
-    if (plan.week_entries && plan.week_entries.length) {
-      var weekRows = plan.week_entries.map(function (entry) {
-        return {
-          plan_id: savedPlan.id,
-          week_number: entry.week_number,
-          activity_name: entry.activity_name,
-          activity_date: entry.activity_date,
-          leads: entry.leads || 0,
-          attendees: entry.attendees || 0,
-          pay_ins: entry.pay_ins || 0,
-          sales: entry.sales || 0,
-          extra: entry.extra || {}
-        };
-      });
-
-      var insertWeeks = await client.from("plan_week_entries").insert(weekRows);
-      if (insertWeeks.error) {
-        throw new Error(insertWeeks.error.message);
-      }
-    }
-
-    if (plan.consolidation_entries && plan.consolidation_entries.length) {
-      var consolidationRows = plan.consolidation_entries.map(function (entry) {
-        return {
-          plan_id: savedPlan.id,
-          name: entry.name,
-          role_label: entry.role_label || "",
-          leads: entry.leads || 0,
-          att: entry.att || 0,
-          pi: entry.pi || 0,
-          sales: entry.sales || 0,
-          evt: entry.evt || 0,
-          pi_target: entry.pi_target || entry.pi || 0
-        };
-      });
-
-      var insertConsolidation = await client
-        .from("plan_consolidation_entries")
-        .insert(consolidationRows);
-      if (insertConsolidation.error) {
-        throw new Error(insertConsolidation.error.message);
-      }
-    }
-
-    return normalizePlanRow(savedPlan);
+    return normalizePlanRow(result.data);
   }
 
   async function loadPlanFromSupabase(planId) {
